@@ -2,6 +2,12 @@
 # Lab 7 Module 3
 
 
+# This warmup function draws a snowman on the supplied desert image
+def draw_snowman():
+  pic = get_pic()
+  
+  return pic
+
 # This function returns opens a file browser and returns the file
 def get_pic():
  return makePicture(pickAFile())
