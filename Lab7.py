@@ -39,6 +39,13 @@ def pyCopy(source, target, targetX, targetY):
         
   return target
 
+# This function adds text to the supplied image
+def addingtext(pic):
+  c = makeColor(255, 165, 0) #pixel color I choose orange for the Thanksgivng feel.
+  s = makeStyle(sansSerif, bold, 50) # setting the font name, style and size
+  addTextWithStyle(pic, 20, 80, "Happy Thanksgiving!", s, c)# here we have to use the explore(pic) to get the pixel range we want for our wording.
+  repaint(pic)
+
 # This function assembles a collage out of user selected image files
 def makecollage():
   target = makeEmptyPicture( 950, 1300, white)
