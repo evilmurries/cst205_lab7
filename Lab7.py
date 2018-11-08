@@ -1,3 +1,7 @@
+# Team 10 - Tech Life Balance Best Engineers
+# Lab 7 Module 3
+
+
 def get_pic():
  return makePicture(pickAFile())
 
