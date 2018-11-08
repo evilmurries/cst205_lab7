@@ -3,16 +3,42 @@
 
 
 # This warmup function draws a snowman on the supplied desert image
-def draw_snowman():
+def drawSnowman():
+
+  # retrieve desert image
   pic = get_pic()
-  height = getHeight(pic)
-  width = getWidth(pic)
   
   # Make the snowman body
-  addOvalFilled(pic, 100, height - 150, 100, 100, white)
-  addOvalFilled(pic, 115, height - 210, 75, 75, white)
-  addOvalFilled(pic, 125, height - 265, 60, 60, white)
+  addOvalFilled(pic, 100, 260, 100, 100, white)
+  addOvalFilled(pic, 115, 200, 75, 75, white)
+  addOvalFilled(pic, 125, 147, 60, 60, white)
   
+  # add buttons
+  addOvalFilled(pic, 150, 330, 5, 5, black)
+  addOvalFilled(pic, 150, 295, 5, 5, black)
+  addOvalFilled(pic, 150, 250, 5, 5, black)
+  
+  
+  # Make hat
+  addRectFilled(pic, 130, 142, 50, 10, black)
+  addRectFilled(pic, 138, 112, 35, 30, black)
+  
+  # Make eyes and pipe
+  brown = makeColor(120, 100, 85)
+  addOvalFilled(pic, 145, 170, 10, 10, black)
+  addOvalFilled(pic, 165, 170, 10, 10, black)
+  addLine(pic,160, 190, 180, 200, brown)
+  addRectFilled(pic, 178, 196, 5, 5, brown)
+  
+  # make right arm
+  addLine(pic, 185, 234, 215, 240, brown)
+  addLine(pic, 215, 240, 217, 234, brown)
+  addLine(pic, 217, 234, 240, 228, brown)
+  
+  # make left arm
+  addLine(pic, 120, 240, 80, 210, brown)
+  addLine(pic, 90, 217, 71, 223, brown)
+  addLine(pic, 71, 223, 60, 219, brown)
   
   explore(pic)
   return pic
@@ -40,7 +66,7 @@ def pyCopy(source, target, targetX, targetY):
   return target
 
 # This function adds text to the supplied image
-def addingtext(pic):
+def addingText(pic):
   c = makeColor(255, 165, 0) #pixel color I choose orange for the Thanksgivng feel.
   s = makeStyle(sansSerif, bold, 50) # setting the font name, style and size
   addTextWithStyle(pic, 20, 80, "Happy Thanksgiving!", s, c)# here we have to use the explore(pic) to get the pixel range we want for our wording.
