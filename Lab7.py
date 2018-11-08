@@ -40,3 +40,4 @@ def makecollage():
   target=pyCopy(picture5,target, 500, 900)
 
   show(target)
+  return target
