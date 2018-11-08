@@ -2,9 +2,11 @@
 # Lab 7 Module 3
 
 
+# This function returns opens a file browser and returns the file
 def get_pic():
  return makePicture(pickAFile())
 
+# This function receives a source and target image, then
 def pyCopy(source, target, targetX, targetY):
 
   sourceWidth = getWidth( source )
@@ -21,6 +23,8 @@ def pyCopy(source, target, targetX, targetY):
         setColor( getPixel( target, x + targetX, y + targetY ), color )
         
   return target
+
+# This function assembles a collage out of user selected image files
 def makecollage():
   target = makeEmptyPicture( 950, 1300, white)
   picture1 = get_pic()
