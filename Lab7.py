@@ -5,15 +5,15 @@
 # This warmup function draws a snowman on the supplied desert image
 def drawSnowman():
 
-  # retrieve desert image
-  pic = get_pic()
+  # Retrieve desert image
+  pic = getPic()
   
   # Make the snowman body
   addOvalFilled(pic, 100, 260, 100, 100, white)
   addOvalFilled(pic, 115, 200, 75, 75, white)
   addOvalFilled(pic, 125, 147, 60, 60, white)
   
-  # add buttons
+  # Add buttons
   addOvalFilled(pic, 150, 330, 5, 5, black)
   addOvalFilled(pic, 150, 295, 5, 5, black)
   addOvalFilled(pic, 150, 250, 5, 5, black)
@@ -30,12 +30,12 @@ def drawSnowman():
   addLine(pic,160, 190, 180, 200, brown)
   addRectFilled(pic, 178, 196, 5, 5, brown)
   
-  # make right arm
+  # Make right arm
   addLine(pic, 185, 234, 215, 240, brown)
   addLine(pic, 215, 240, 217, 234, brown)
   addLine(pic, 217, 234, 240, 228, brown)
   
-  # make left arm
+  # Make left arm
   addLine(pic, 120, 240, 80, 210, brown)
   addLine(pic, 90, 217, 71, 223, brown)
   addLine(pic, 71, 223, 60, 219, brown)
@@ -44,7 +44,7 @@ def drawSnowman():
   return pic
 
 # This function returns opens a file browser and returns the file
-def get_pic():
+def getPic():
  return makePicture(pickAFile())
 
 # This function receives a source and target image, then
@@ -67,25 +67,36 @@ def pyCopy(source, target, targetX, targetY):
 
 # This function adds text to the supplied image
 def addingText(pic):
-  c = makeColor(255, 165, 0) #pixel color I choose orange for the Thanksgivng feel.
-  s = makeStyle(sansSerif, bold, 50) # setting the font name, style and size
-  addTextWithStyle(pic, 20, 80, "Happy Thanksgiving!", s, c)# here we have to use the explore(pic) to get the pixel range we want for our wording.
-  repaint(pic)
+  message = "HAPPY THANKSGIVING"
+  # setting the font name, style and size
+  font = makeStyle(sansSerif, bold, 30)
+  # here we have to use the explore(pic) to get the pixel range we want for our wording
+  addTextWithStyle(pic, 280, 630, message, font, orange)
+  return pic
 
-# This function assembles a collage out of user selected image files
-def makecollage():
+# This function assembles a collage
+def makeCard():
   target = makeEmptyPicture( 950, 1300, white)
-  picture1 = get_pic()
-  picture2 = get_pic()
-  picture3 = get_pic()
-  picture4 = get_pic()
-  picture5 = get_pic()
   
+  #background_Pic "fall_leaves.jpg
+  print 'Select Background Image: '
+  backgroundPic = getPic()
+  
+  #group pic: group_photo(1).jpg
+  print 'Select Center Image: '
+  picture1 = getPic()
+  
+  #turkey.png
+  print 'Select Corner Image: '
+  picture2 = getPic()
+
+  #assemble Thanksgiving card
+  target = pyCopy(backgroundPic, target, 0,0)
   target=pyCopy(picture1,target, 200, 350)
   target=pyCopy(picture2,target, 500, 200)
-  target=pyCopy(picture3,target, 175, 900)
-  target=pyCopy(picture4,target, 175, 200)
-  target=pyCopy(picture5,target, 500, 900)
-
-  show(target)
+  target=pyCopy(picture2,target, 175, 900)
+  target=pyCopy(picture2,target, 175, 200)
+  target=pyCopy(picture2,target, 500, 900)
+  target = addingText(target)
+  
   return target
